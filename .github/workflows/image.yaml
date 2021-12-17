@@ -38,9 +38,11 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.DOCKERHUB_SLUG }}
+          images: |
+            ${{ env.DOCKERHUB_SLUG }}
           tags: |
             type=raw,value=${{ env.UPX_VERSION }}
+            type=raw,value=latest
           labels: |
             org.opencontainers.image.title=upx
             org.opencontainers.image.base.name=scratch
@@ -72,6 +74,8 @@ jobs:
             linux/ppc64le
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            UPX_VERSION=${{ env.UPX_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
