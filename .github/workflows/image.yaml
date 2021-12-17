@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.DOCKERHUB_SLUG }}:${{ env.UPX_VERSION }}
+          images: ${{ env.DOCKERHUB_SLUG }}
           tags: |
             type=raw,value=${{ env.UPX_VERSION }}
           labels: |
