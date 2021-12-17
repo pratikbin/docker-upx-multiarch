@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push:
+    branches:
+      - "master"
+      - "main"
+    paths:
+      - "**.md"
+
+env:
+  DOCKERHUB_SLUG: pratikimprowise/upx
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: meeDamian/sync-readme@v1.0.6
+        with:
+          user: ${{ secrets.DOCKER_USERNAME }}
+          pass: ${{ secrets.DOCKER_PASS }}
+          slug: ${{ env.DOCKERHUB_SLUG }}
+          readme: README.md
+          description: UPX scratch container image with multi plateform support
