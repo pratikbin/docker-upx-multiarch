@@ -16,7 +16,7 @@ on:
 
 env:
   DOCKERHUB_SLUG: pratikimprowise/upx
-  UPX_VERSION: 3.96
+  UPX_VERSION: "3.96"
 
 jobs:
   build:
@@ -40,14 +40,14 @@ jobs:
         with:
           images: ${{ env.DOCKERHUB_SLUG }}:${{ env.UPX_VERSION }}
           tags: |
-            type=raw,value=${{UPX_VERSION}}
+            type=raw,value=${{ env.UPX_VERSION }}
           labels: |
             org.opencontainers.image.title=upx
             org.opencontainers.image.base.name=scratch
             org.opencontainers.image.authors=pratikbalar
             org.opencontainers.image.licenses=Apache-2.0
             org.opencontainers.image.description=UPX container image with multi plateform support
-            org.opencontainers.image.version=${{UPX_VERSION}}
+            org.opencontainers.image.version=${{ env.UPX_VERSION }}
             org.opencontainers.image.source=https://github.com/pratikbalar/docker-upx-multiarch
 
       - name: Login to DockerHub
