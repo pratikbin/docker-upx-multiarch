@@ -5,6 +5,7 @@ on:
     branches:
       - "master"
       - "main"
+      - "dev*"
     paths-ignore:
       - "**.md"
   pull_request:
