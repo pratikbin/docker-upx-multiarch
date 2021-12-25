@@ -15,10 +15,10 @@ supported plateforms
 
 ## Usage
 
-```docker run --rm -it -v $(pwd):/app/ pratikbalar/upx app```
+```docker run --rm -it -v $(pwd):/app/ pratikimprowise/upx app```
 
 
-> **NOTE**: xz utils was not available for all architecture in alpine so created [pratikbalar/tarrer](https://github.com/pratikbalar/tarrer) utility (size around `4MB`) in golang that can extract `br`, `bz2`, `zip`, `gz`, `lz4`, `sz`, `xz`, `zstd` archives.
+> **NOTE**: xz utils was not available for all architecture so created [pratikbalar/tarrer](https://github.com/pratikbalar/tarrer) dumb utility in golang that can extract `br`, `bz2`, `zip`, `gz`, `lz4`, `sz`, `xz`, `zstd` archives.
 > > thanks to [mholt/archiver](https://github.com/mholt/archiver)
 
 ---
