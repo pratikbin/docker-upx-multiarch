@@ -23,7 +23,7 @@ or within dockerfile
 
   ```dockerfile
   FROM ubuntu
-  COPY --form=pratikimprowise/upx / /
+  COPY --from=pratikimprowise/upx / /
   RUN upx -9 xxx
   ```
 
